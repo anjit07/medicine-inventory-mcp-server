@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: medicine-inventory-mcp-server
+  ai:
+    mcp:
+      server:
+        enabled: true
+        name: inventory-mcp-server
+        version: 0.0.1
+        type: SYNC
+        sse-endpoint: mcp
+        protocol: streamable
+        stdio: false
+        webmvc:
+            cors:
+              allowed-origins: "*"
+
+server:
+  port: 9090
