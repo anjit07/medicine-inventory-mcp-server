@@ -1,12 +1,14 @@
 package medicine.mcp.server.resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpResource;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-
 @Component
 public class MedicineResources {
+
+    Logger logger = LoggerFactory.getLogger(MedicineResources.class);
 
     @McpResource(
             name = "pharmacy-policy",
@@ -15,6 +17,7 @@ public class MedicineResources {
     )
     public String pharmacyPolicy() {
 
+        logger.info("RESOURCES: pharmacyPolicy");
         return """
                 Pharmacy Rules:
 
@@ -32,6 +35,7 @@ public class MedicineResources {
     )
     public String dosageInfo() {
 
+        logger.info("RESOURCES: dosageInfo");
         return """
             Paracetamol: 500mg twice daily after food
             Amoxicillin: 250mg three times daily
@@ -46,6 +50,7 @@ public class MedicineResources {
     )
     public String pharmacyInfo() {
 
+        logger.info("RESOURCES: pharmacyInfo");
         return "Pharmacy open from 9 AM to 9 PM.";
     }
 

@@ -11,6 +11,35 @@ public class MedicineInventoryPrompts {
 
     Logger logger = LoggerFactory.getLogger(MedicineInventoryPrompts.class);
 
+
+    @McpPrompt(
+            name = "medicine-inventory-assistant",
+            description = "Main assistant for medicine inventory system"
+    )
+    public String mainAssistant() {
+
+        logger.info("PROMPT: mainAssistant ");
+        return """
+        You are a medicine inventory assistant.
+
+        You are ONLY allowed to answer questions related to:
+
+        - Medicine inventory
+        - Stock levels
+        - Expiry
+        - Suppliers
+        - Pharmacy rules
+        - Prescriptions
+
+        If user asks anything outside this domain,
+        respond with:
+
+        "I am only allowed to answer medicine inventory related questions."
+
+        Always use available tools and resources when required.
+        """;
+    }
+
     @McpPrompt(
             name = "inventory-summary",
             description = "Get complete inventory summary"
